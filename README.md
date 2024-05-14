@@ -37,6 +37,15 @@ Follow these steps to set up and run TreatMania locally:
 
 ## ScreenShots:
 
+![Home](web/assets/images/s1.png)
+![About Metrics](web/assets/images/s2.png)
+![Restaurant List](web/assets/images/s3.png)
+![Menu Items](web/assets/images/s4.png)
+![Cart](web/assets/images/s5.png)
+![CheckOut](web/assets/images/s6.png)
+
+## NOTE:
+   Still I am working on this project to integrate various features.
 
 ## Contact
 If you encounter any issues or have questions about TreatMania, please mail to abisheks2505@gmail.com.
