@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon"  href="./assets/images/logo.svg" type="image/svg+xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TreatMania - Signup</title>
+  <style>
+    /* Embedded CSS for Signup Page */
+    body {
+      font-family: serif, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('./assets/images/demobg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-wrapper {
+      text-align: center;
+      background: linear-gradient(to bottom, #FFA500, #FF6347);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding:20px;
+      width: 300px;
+      animation: slide-up 0.5s ease forwards;
+      opacity: 0;
+      position: relative;
+      top: 50px;
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+      padding:10px;
+    }
+    .form-group {
+      margin: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    .form-group input {
+        width: calc(100% - 20px); /* Adjust the width and subtract the margin */
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        margin: 0 auto; /* Center the input horizontally */
+      }
+    .btn-primary {
+      display: flex;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px;
+      transition: background-color 2.0s ease;
+      align-items: center;
+    }
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+    @keyframes slide-up {
+      to {
+        opacity: 1;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2 class="form-title" style="font-size: 25px;">Sign up for TreatMania!</h2>
+    <form action="signUpServlet" method="post">
+        <div class="form-group">
+            <input type="text" id="username" name="username" placeholder = "username" required>
+         </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </div>
+        <button type="submit" class="btn-primary">Sign Up</button>
+        <p style="color: white;">Already an User?<a href="index.jsp">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
