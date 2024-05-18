@@ -47,7 +47,7 @@
       </nav>
       <div class="header-action" style="margin-top: -30px;">
         <a href="restaurantList" class="btn btn-primary has-after" >Order Now</a>
-        <button class="cart-btn" aria-label="cart">
+        <button class="cart-btn" aria-label="cart" id="cartbtn">
           <ion-icon name="bag" aria-hidden="true"></ion-icon>
         </button>
         <button class="cart-btn" aria-label="settings">
@@ -479,6 +479,10 @@
             } else {
                 sessionStorage.setItem('loggedIn', 'false');
             }
+            var button = document.getElementById('cartbtn');
+            button.addEventListener("click", function(){
+                window.location.href = 'cart.jsp';
+            });
         });
     </script>
   <script src="./assets/js/script.js"></script>

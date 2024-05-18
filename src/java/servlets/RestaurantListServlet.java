@@ -16,8 +16,7 @@ public class RestaurantListServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new ServletException("Error loading MySQL JDBC Driver", e);
+            throw new ServletException("Error loading MySQL JDBC Driver");
         }
         List<Restaurant> restaurantList = new ArrayList<>();
         Connection conn = null;
@@ -51,10 +50,7 @@ public class RestaurantListServlet extends HttpServlet {
             }
         }
 
-        // Set restaurantList as an attribute in the request object
         request.setAttribute("restaurantList", restaurantList);
-
-        // Forward the request to the JSP page for rendering
         RequestDispatcher dispatcher = request.getRequestDispatcher("/restaurants.jsp");
         dispatcher.forward(request, response);
     }

@@ -17,8 +17,7 @@ public class MenuServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new ServletException("Error loading MySQL JDBC Driver", e);
+            throw new ServletException("Error loading MySQL JDBC Driver");
         }
         List<MenuItem> menuItems = new ArrayList<>();
         int restaurantId = Integer.parseInt(request.getParameter("restaurantId"));
@@ -46,11 +45,8 @@ public class MenuServlet extends HttpServlet {
                 menuItems.add(menuItem);
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
             System.out.println(ex.getMessage());
         }
-
-        // Set attribute and forward to JSP
         request.setAttribute("menuItems", menuItems);
         request.getRequestDispatcher("/order.jsp").forward(request, response);
     }

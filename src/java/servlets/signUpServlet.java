@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/signUpServlet")
 public class signUpServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     // JDBC URL, username, and password of MySQL server
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/treatmania";
     private static final String JDBC_USERNAME = "tm_admin";
@@ -26,17 +25,14 @@ public class signUpServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new ServletException("Error loading MySQL JDBC Driver", e);
+            throw new ServletException("Error loading MySQL JDBC Driver");
         }
         // Retrieve user input from signup form
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Initialize database connection
         try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD)) {
-            // Check if the email already exists in the database
             String checkEmailSql = "SELECT * FROM Users WHERE email = ?";
             try (PreparedStatement checkEmailStatement = connection.prepareStatement(checkEmailSql)) {
                 checkEmailStatement.setString(1, email);
@@ -49,7 +45,6 @@ public class signUpServlet extends HttpServlet {
                 }
             }
 
-            // Prepare SQL statement to insert new user into database
             String sql = "INSERT INTO Users (username, email, password) VALUES (?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, username);
@@ -57,7 +52,7 @@ public class signUpServlet extends HttpServlet {
                 statement.setString(3, password);
 
                 // Execute query
-                int rowsInserted = statement.executeUpdate();
+                    int rowsInserted = statement.executeUpdate();
                 if (rowsInserted > 0) {
                     // User account created successfully
                     // Redirect user to login page
@@ -69,7 +64,6 @@ public class signUpServlet extends HttpServlet {
                 }
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             response.sendRedirect("signUp.html?error=databaseError");
         }
     }

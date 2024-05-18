@@ -3,7 +3,7 @@ public class CartItem {
     private String name;
     private String imageUrl;
     private double price;
-    private int quantity; // New attribute for quantity
+    private int quantity; 
 
 
     public CartItem(String name, String imageUrl, double price, int quantity) {
@@ -13,8 +13,6 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-
-    // Getters and setters
     public String getName() {
         return name;
     }

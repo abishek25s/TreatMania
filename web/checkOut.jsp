@@ -16,12 +16,12 @@
         }
         .box { 
             padding-top: 10px;
-            padding-left:25px; /* Adjust padding to fit the content */
+            padding-left:25px; 
             border: 2px solid black;
             border-radius: 20px;
             display: flex;
             align-items: center;
-            width: 22%; /* Center the box horizontally and provide some space */
+            width: 22%; 
             margin: 20px auto;
         }
         .box p{
@@ -353,17 +353,11 @@
             document.querySelector('body').insertAdjacentHTML('beforeend', notification);
         }
         function closeNotification() {
-            // Enable scrolling
             document.body.style.overflow = 'auto';
-
             var notificationBox = document.querySelector('.notification-box');
             if (notificationBox) {
                 notificationBox.remove();
             }
-        }
-        function redirectToHome() {
-            // Code to redirect to home page goes here
-            window.location.href = "/"; // Change the URL to your home page URL
         }
     </script>
     <%@include file="footer.jsp" %>

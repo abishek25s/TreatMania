@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     // JDBC URL, username, and password of MySQL server
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/treatmania";
     private static final String JDBC_USERNAME = "tm_admin";
@@ -26,8 +25,7 @@ public class LoginServlet extends HttpServlet {
          try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new ServletException("Error loading MySQL JDBC Driver", e);
+            throw new ServletException("Error loading MySQL JDBC Driver");
         }
         // Retrieve user input from login form
         String email = request.getParameter("email");
@@ -55,8 +53,6 @@ public class LoginServlet extends HttpServlet {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());// Handle potential database errors
             response.sendRedirect("index.jsp?error=databaseError");
         }
     }

@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Here you can retrieve the items from the user's cart (e.g., from session) and pass them to the JSP for display
-        // For demonstration purposes, let's assume the cart items are stored in the session attribute named "cart"
         HttpSession session = request.getSession();
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
 

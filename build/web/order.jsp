@@ -12,28 +12,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Soft gray background */
-            color: #343a40; /* Dark gray text color */
+            background-color: #f8f9fa; 
+            color: #343a40; 
             overflow-x: hidden;
         }
 
         .menu-item {
-            margin-bottom: 50px; /* Increased spacing between menu items */
-            border-radius: 10px; /* Rounded corners for each menu item */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-            overflow: hidden; /* Ensure overflow is hidden for rounded corners */
-            height: 500px; /* Fixed height for menu item container */
+            margin-bottom: 50px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            overflow: hidden; 
+            height: 500px; 
         }
 
         .menu-item .image-container {
-            position: relative; /* Positioning context for overlay */
-            height: 60%; /* 60% of menu item height for image */
+            position: relative; 
+            height: 60%;
         }
 
         .menu-item .image-container img {
-            width: 100%; /* Ensure image fills container */
-            height: 100%; /* Fill the container height */
-            object-fit: cover; /* Cover to fit container */
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
         }
 
         .menu-item .image-overlay {
@@ -42,40 +42,39 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
-            opacity: 0; /* Initially transparent */
-            transition: opacity 0.3s ease; /* Smooth transition */
+            background-color: rgba(0, 0, 0, 0.4); 
+            opacity: 0; 
+            transition: opacity 0.3s ease; 
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .menu-item:hover .image-overlay {
-            opacity: 1; /* Show overlay on hover */
+            opacity: 1; 
         }
 
         .menu-item .image-overlay span {
-            background-color: #007bff; /* Blue button background */
+            background-color: #007bff; 
             border: none;
-            color: #fff; /* White button text */
+            color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.3s ease; 
         }
 
         .menu-item .image-overlay span:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3; 
         }
 
         .menu-content {
-            height: 40%; /* 40% of menu item height for content */
-            padding: 20px; /* Add padding to the content */
-            overflow: hidden; /* Hide overflow for content */
+            height: 40%; 
+            padding: 20px; 
+            overflow: hidden;
         }
 
-        /* Styling for toast notification */
         #toast-notification {
             position: fixed;
             top: 20px;
@@ -93,7 +92,6 @@
         <h1 class="text-center mb-4">Menu Items</h1>
 
         <div class="row">
-            <!-- Loop through menu items and display -->
             <c:forEach var="menuItem" items="${menuItems}">
                 <div class="col-md-4">
                     <div class="menu-item">
@@ -105,7 +103,7 @@
                         </div>
                         <div class="menu-content">
                             <h2>${menuItem.name}</h2>
-                            <p>&#x20B9;${menuItem.price}</p> <!-- Rupees symbol added here -->
+                            <p>&#x20B9;${menuItem.price}</p> 
                             <p>${menuItem.description}</p>
                         </div>
                     </div>
@@ -132,21 +130,29 @@
             toast.show();
         }
 
-        // Function to handle adding item to cart
         function addToCart(itemId, itemName, itemImageUrl, itemPrice) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "addToCart", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                    showToast(xhr.responseText); // Show toast notification
-                }
-            };
-            // Always set quantity to 1
-            xhr.send("itemId=" + itemId + "&itemName=" + itemName + "&itemImageUrl=" + itemImageUrl + "&itemPrice=" + itemPrice + "&quantity=1");
+            fetch('addToCart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    itemId: itemId,
+                    itemName: itemName,
+                    itemImageUrl: itemImageUrl,
+                    itemPrice: itemPrice,
+                    quantity: 1,
+                }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                showToast(data); 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
 
-        // Add event listeners to "Add to Cart" buttons
         var addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
         addToCartButtons.forEach(function(button) {
             button.addEventListener('click', function(event) {
@@ -159,7 +165,6 @@
         });
     </script>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

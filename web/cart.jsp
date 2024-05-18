@@ -12,8 +12,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Soft gray background */
-            color: #343a40; /* Dark gray text color */
+            background-color: #f8f9fa; 
+            color: #343a40; 
             overflow-x: hidden;
         }
 
@@ -65,15 +65,15 @@
             margin-right: -10px;
         }
         .box {
-            padding: 10px 0px; /* Adjust padding to fit the content */
+            padding: 10px 0px; 
             border: 2px solid black;
             border-radius: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content horizontally */
+            justify-content: center; 
             margin: 20px auto;
             align-items: center;
-            width: 33%;/* Center the box horizontally and provide some space */
+            width: 33%;
         }
         .container{
             padding:20px;

@@ -23,12 +23,12 @@
           align-items: center;
         }
         .form-wrapper {
-            text-align: center; /* Center-align contents */
+            text-align: center; 
             background: linear-gradient(to bottom, #FFA500, #FF6347);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             padding: 20px;
-            width: 300px; /* Adjusted width for better centering */
+            width: 300px; 
             animation: slide-up 0.5s ease forwards;
             opacity: 0;
             position: relative;
@@ -52,7 +52,7 @@
           color: #fff;
         }
         .form-group input {
-            width: calc(100% - 20px); /* Adjusted width for better centering */
+            width: calc(100% - 20px); 
             padding: 10px;
             font-size: 16px;
             border: none;

@@ -44,7 +44,7 @@
             list-style-type: none; 
         }
         .myfooter-list li:not(:first-child) {
-            margin-top: 10px; /* Add top margin to separate list items */
+            margin-top: 10px; 
             list-style-type: disc; /* Apply bullet styling */
         }
         .mylogo{
