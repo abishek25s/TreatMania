@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkmark-icon {
+            font-size: 50px;
+            color: #ff7f50;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtext {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-view-order {
+            background-color: #ffffff;
+            color: #ff7f50;
+            border: 1px solid #ff7f50;
+        }
+
+        .btn-continue-shopping {
+            background-color: hsl(39, 96%, 48%);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="thank-you-container">
+        <div class="checkmark-icon">
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="12" fill="hsl(39, 96%, 48%)" />
+                <path
+                    d="M10.2426 16.3137C9.85208 16.7042 9.21892 16.7042 8.82843 16.3137L4.70711 12.1924C4.31658 11.8019 4.31658 11.1687 4.70711 10.7782C5.09763 10.3877 5.7308 10.3877 6.12132 10.7782L10 14.6569L17.8787 6.77817C18.2692 6.38765 18.9024 6.38765 19.2929 6.77817C19.6834 7.16869 19.6834 7.80186 19.2929 8.19238L11.1716 16.3137C10.7811 16.7042 10.148 16.7042 9.75749 16.3137H10.2426Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <div class="thank-you-text">Thank you for ordering!</div>
+        <div class="subtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.</div>
+        <div>
+            <button class="btn btn-custom btn-continue-shopping" onclick="redirectHome()">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function redirectHome(){
+            window.location.href = 'main.jsp';
+        }
+    </script>
+</body>
+
+</html>

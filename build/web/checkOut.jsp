@@ -339,18 +339,8 @@
             document.getElementById("payButton").style.display = "block";
         }
         function placeOrder() {
-            // Disable scrolling
-            document.body.style.overflow = 'hidden';
-
-            // Here you can perform any necessary actions before placing the order
-            var notification = `
-                <div class="notification-box">
-                    <span class="close-btn" onclick="closeNotification()">&times;</span>
-                    <p>Congratulations! Your order is placed!</p>
-                    <button class="btn btn-primary" onclick="main.jsp">Back to Home</button>
-                </div>
-            `;
-            document.querySelector('body').insertAdjacentHTML('beforeend', notification);
+            window.location.href = 'thankYou.html';
+            
         }
         function closeNotification() {
             document.body.style.overflow = 'auto';
