@@ -39,7 +39,7 @@ public class signUpServlet extends HttpServlet {
                 try (ResultSet resultSet = checkEmailStatement.executeQuery()) {
                     if (resultSet.next()) {
                         // User with the provided email already exists
-                        response.sendRedirect("signUp.html?error=userExists");
+                        response.sendRedirect("index.jsp?error=userExists");
                         return; // Exit the method
                     }
                 }
@@ -60,11 +60,11 @@ public class signUpServlet extends HttpServlet {
                 } else {
                     // Account creation failed
                     // Redirect user back to signup page with error message
-                    response.sendRedirect("signUp.html?error=signupFailed");
+                    response.sendRedirect("index.jsp?error=signupFailed");
                 }
             }
         } catch (SQLException e) {
-            response.sendRedirect("signUp.html?error=databaseError");
+            response.sendRedirect("index.jsp?error=databaseError");
         }
     }
 

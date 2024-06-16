@@ -1,100 +1,190 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <link rel="shortcut icon"  href="./assets/images/logo.svg" type="image/svg+xml">
+
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TreatMania - Login</title>
+    <title>Login and Registration</title>
     <style>
-      /* Embedded CSS for Login Page */
-        body {
-          font-family: serif, sans-serif;
-          margin: 0;
-          padding: 0;
-          background-image: url('./assets/images/demobg.jpg');
-          background-size: cover;
-          background-position: center;
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
         }
-        .form-wrapper {
-            text-align: center; 
-            background: linear-gradient(to bottom, #FFA500, #FF6347);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            width: 300px; 
-            animation: slide-up 0.5s ease forwards;
-            opacity: 0;
-            position: relative;
-            top: 50px;
-          }
 
-        .form-title {
-          text-align: center;
-          margin-bottom: 20px;
-          padding:10px;
-          color: #fff;
+        .container {
+            width: 800px;
+            height: 400px;
+            display: flex;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        .form-group {
-          margin: 20px;
 
+        .signin,
+        .signup {
+            width: 50%;
+            padding: 40px;
+            box-sizing: border-box;
         }
-        .form-group label {
-          display: block;
-          font-size: 16px;
-          margin-bottom: 5px;
-          color: #fff;
+
+        .signin {
+            background-color: hsl(39, 96%, 48%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .form-group input {
-            width: calc(100% - 20px); 
-            padding: 10px;
-            font-size: 16px;
+
+        .signin h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .signin p {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .signin button {
+            padding: 10px 20px;
+            background-color: white;
+            color: hsl(39, 96%, 48%);
             border: none;
-            border-radius: 5px;
-          }
-        .btn-primary {
-          display: flex;
-          background-color: #4CAF50;
-          color: white;
-          padding:10px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-          margin: 20px;
-          transition: background-color 2.0s ease;
-          align-items: center;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
         }
-        .btn-primary:hover {
-          background-color: #45a049;
+
+        .signin button:hover {
+            background-color: hsl(39, 96%, 48%);
+            color: white;
         }
-        @keyframes slide-up {
-          to {
-            opacity: 1;
-            top: 0;
-          }
+
+        .signup {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .signup h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .signup .social-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .signup .social-container a {
+            margin: 0 5px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .signup form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signup form input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        .signup form button {
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: hsl(39, 96%, 48%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup form button:hover {
+            background-color: white;
+            color: hsl(39, 96%, 48%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+
+            .signin,
+            .signup {
+                width: 100%;
+            }
+
+            .signin button,
+            .signup form button {
+                width: 80%;
+            }
+        }
+
+        .signin form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signin form input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        .fline{
+            display: flex;
         }
     </style>
-    </head>
-    <body>
-        <div class="form-wrapper">
-            <h2 class="form-title" style="font-size:27px;">Login to TreatMania</h2>
+</head>
+
+<body>
+    <div class="container">
+        <div class="signin">
+            <div class="fline">
+                <img src="./assets/images/flogo.svg" alt="demo" width="75" height="75">
+                <h2>Welcome Back!</h2>
+            </div>
+            <p>To keep connected with us please login with your personal info</p>
             <form action="LoginServlet" method="post">
-                <div class="form-group">
-                <input type="text" id="email" name="email" placeholder = "Email" required>
-                </div>
-                <div class="form-group">
-                <input type="password" id="password" name="password" placeholder = "password" required>
-                </div>
-                <button type="submit" class="btn-primary">Login</button>
-                <p style="color: white;">Don't have an account? <a href="signUp.html">SignUp</a></p>
+                <input type="email" name ="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button>SIGN IN</button>
             </form>
         </div>
-    </body>
+        <div class="signup">
+            <h2>Create Account</h2>
+            <form action="signUpServlet" method="post">
+                <input type="text" name="username" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
