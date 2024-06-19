@@ -14,10 +14,13 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat';
             background-color: #f0f0f0;
+            background: url('./assets/images/pattern3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
-
         .container {
             width: 800px;
             height: 400px;
@@ -156,6 +159,10 @@
         }
         .fline{
             display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: 0px;
+            padding-left: 0px;            
         }
     </style>
 </head>
@@ -164,19 +171,22 @@
     <div class="container">
         <div class="signin">
             <div class="fline">
-                <img src="./assets/images/flogo.svg" alt="demo" width="75" height="75">
+                <img src="./assets/images/logo_prev_ui.png" alt="demo" width="50" height="50">
                 <h2>Welcome Back!</h2>
             </div>
             <p>To keep connected with us please login with your personal info</p>
             <form action="LoginServlet" method="post">
                 <input type="email" name ="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required style='margin-bottom: 30px;'>
                 <button>SIGN IN</button>
             </form>
         </div>
         <div class="signup">
-            <h2>Create Account</h2>
-            <form action="signUpServlet" method="post">
+            <div class="fline">
+                <img src="./assets/images/logo_prev_ui.png" alt="demo" width="50" height="50">
+                <h2>Create Account</h2>
+            </div>
+            <form action="signUpServlet" method="post" class="signinForm">
                 <input type="text" name="username" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
